@@ -17,8 +17,8 @@ function Items({ data, setFind }) {
     },[data])
     const search = ()=>{
         if(ss.search !== ""){
-            let x = tabledata.filter(v=>new RegExp(ss.search, "i").test(v.item_name));
-            let y = tabledata.filter(v=>(!new RegExp(ss.search, "i").test(v.item_name)));
+            let x = data.filter(v=>new RegExp(ss.search, "i").test(v.item_name));
+            let y = data.filter(v=>(!new RegExp(ss.search, "i").test(v.item_name)));
             let z = y.filter(v=>new RegExp(ss.search, "i").test(v.item_code));
             console.log(x);
             setTabledata([...x, ...z]);

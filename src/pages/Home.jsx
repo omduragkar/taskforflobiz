@@ -1,4 +1,5 @@
-import { Button, Container, FormControl, FormLabel, Heading, HStack, Input, InputGroup, InputLeftAddon, NumberInput, NumberInputField, Text, useToast, VStack } from '@chakra-ui/react'
+import { CheckIcon } from '@chakra-ui/icons';
+import { Box, Button, Container, FormControl, FormLabel, Heading, HStack, Icon, Input, InputGroup, InputLeftAddon, NumberInput, NumberInputField, Table, Tbody, Td, Text, Tr, useToast, VStack } from '@chakra-ui/react'
 import axios from 'axios';
 import React, { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom';
@@ -252,28 +253,47 @@ function Home() {
                         </Text>
 
                     </VStack>
-                    <VStack w={"30%"} border="2px" minH={"20rem"}>
-                        <img 
-                        alt='plan2'
-                        src='https://mybillbook.in/static-assets/images/pricing%20page/goldencrown.svg'
-                        />
-                        <Text>
-                            Diamond Plan
-                        </Text>
-                        <HStack>
-                            <Text>
-                               ₹
-                            </Text>
-                            <Text textDecorationLine={"line-through"}>4599</Text>
-                            <Text>
-                                3500 /year
-                            </Text>
-                        </HStack>
-                        <Text>
-                            Mobile + Desktop
-                        </Text>
+                    <Box w={"30%"} border="2px" minH={"20rem"} p={"2"}>
+                        <VStack>
+                            <VStack w="100%" align={"flex-start"}>
+                                <img 
+                                alt='plan2'
+                                src='https://mybillbook.in/static-assets/images/pricing%20page/goldencrown.svg'
+                                />
+                                <Text>
+                                    Diamond Plan
+                                </Text>
+                                <HStack>
+                                    <Text>
+                                    ₹
+                                    </Text>
+                                    <Text textDecorationLine={"line-through"}>4599</Text>
+                                    <Text>
+                                        3500 /year
+                                    </Text>
+                                </HStack>
+                            </VStack>
+                            <Box w="100%" bg={"gray.200"}>
+                                <Text textAlign={"center"} m={"2"} rounded="sm" fontWeight={"semibold"} color={"blackAlpha.800"}>
+                                    Mobile + Desktop
+                                </Text>
+                            </Box>
+                            <Table>
+                                <Tbody>
+                                    <Tr>
+                                        <Td><Icon as={CheckIcon} color={"green.500"}/></Td>
+                                        <Td w="100%">All Silver & Gold Features!</Td>
+                                    </Tr>
+                                    <Tr>
+                                        <Td><Icon as={CheckIcon} color={"green.500"}/></Td>
+                                        <Td w="100%">Add <b>Unlimited</b> Staff!</Td>                                        
+                                    </Tr>
+                                </Tbody>
+                            </Table>
 
-                    </VStack>
+                        </VStack>
+                    </Box>
+
                 </HStack>
             </VStack>
             <HStack w={"100%"} justify="space-around" py={"5"} align="flex-start">
