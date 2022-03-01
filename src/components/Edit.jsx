@@ -1,3 +1,4 @@
+import { CheckIcon, Icon } from '@chakra-ui/icons';
 import { Button, FormControl, FormLabel, Heading, HStack, Input, InputGroup, InputLeftElement, Select, Text, useToast, VStack } from '@chakra-ui/react'
 import React, { useEffect, useState } from 'react'
 import DatePicker  from 'react-datepicker'
@@ -136,7 +137,7 @@ function Edit({ data, setData, find, setFind }) {
                 {/* <Input type={"date"} name={"date"} onChange={e=>iphandler(e)} ></Input> */}
             </FormControl>
         </HStack>
-        <Button colorScheme='facebook' w={"80%"} my="3" onClick={submithandler}>SAVE</Button>
+        <Button colorScheme='messenger' w={"80%"} my="3" onClick={submithandler}><Icon as={CheckIcon}/> &nbsp;SAVE </Button>
     </VStack>
 
   )
