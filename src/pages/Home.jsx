@@ -1,9 +1,10 @@
-import { CheckIcon } from '@chakra-ui/icons';
-import { Box, Button, Container, FormControl, FormLabel, Heading, HStack, Icon, Input, InputGroup, InputLeftAddon, NumberInput, NumberInputField, Table, Tbody, Td, Text, Tr, useToast, VStack } from '@chakra-ui/react'
+
+import { Button, Container, FormControl, FormLabel, Heading, HStack,  InputGroup, InputLeftAddon, NumberInput, Text, NumberInputField,useToast, VStack } from '@chakra-ui/react'
 import axios from 'axios';
 import React, { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom';
 import Nav from '../components/Nav'
+import Plans from '../components/Plans';
 import { ADDUSER } from '../context/Constants';
 import { GlobalContext } from '../context/ContextUser';
 
@@ -95,7 +96,7 @@ function Home() {
     <Container my={"2"} mx={"0"}>
         <VStack w={"94vw"}>
             <Nav/>
-            <HStack bg={"#fbf7f4"} w="100%" minH={"50vh"}>
+            <HStack bg={"#fbf7f4"} w="100%" minH={"50vh"} px={"3"}>
                 <VStack w={"60%"} flexBasis="80%" experimental_spaceY={"16"}>
                     <VStack w="70%" mx={"auto"} textAlign="center">
                         <Heading>
@@ -117,7 +118,7 @@ function Home() {
 
                 </VStack>
                 <VStack w={"40%"}>
-                    <VStack w={"80%"} bg={"#fff"} p={"5"} border="2px" rounded={"md"} borderColor={"gray.300"}>
+                    <VStack w={"85%"} bg={"#fff"} p={"5"} border="2px" rounded={"md"} borderColor={"gray.300"}>
                         <Text fontSize='3xl' fontWeight={"bold"}>
                             Login to my BillBook
                         </Text>
@@ -184,7 +185,7 @@ function Home() {
                         <Heading color={"orange.400"}>
                             4.5 
                         </Heading>
-                        <img alt ="billbook app rating"
+                        <img alt ="billbook app star"
                          src='https://mybillbook.in/static-assets/images/landing-page/star.webp'/>
                     </HStack>
                     <Text>
@@ -196,7 +197,7 @@ function Home() {
                 <HStack w={"100%"} justify={"space-between"} my="10"> 
                     <VStack justify={"start"}>
                         <Heading>Now try all benefits of My BillBook app</Heading>
-                        <Text fontSize={"xl"} color="orange" fontWeight={"semibold"}>Free for 14 days!</Text>
+                         <Text fontSize={"3xl"} color="orange" fontWeight={"bold"} w="100%">Free for 14 days!</Text>
                     </VStack>
                     <div>
                         <img 
@@ -208,102 +209,65 @@ function Home() {
                         
                     </div>
                 </HStack>
-                <HStack w={"100%"} justify="space-evenly">
-                    <VStack w={"30%"} border="2px" minH={"20rem"}> 
-                        <img 
-                        alt='plan1'
-                        src='https://mybillbook.in/static-assets/images/pricing%20page/bluecrown.svg'
-                        />
-                        <Text>
-                            Silver Plan
-                        </Text>
-                        <HStack>
-                            <Text>
-                               ₹
-                            </Text>
-                            <Text textDecorationLine={"line-through"}>1200</Text>
-                            <Text>
-                                799 /year
-                            </Text>
-                        </HStack>
-                        <Text>
-                            Mobile + Desktop
-                        </Text>
+                <HStack w="100%" display={"flex"} flexDir={"row"} justify={"space-evenly"}>
+                    {[
+                        {
+                            plan_no:"1",
+                            img:"https://mybillbook.in/static-assets/images/pricing%20page/bluecrown.svg",
+                            plan_name:"Silver Plan",
+                            actual_cost:1200,
+                            cut_price:799,
+                            color:"blue.600",
+                            features:[
+                                "Unlimited Stock adjustments",
+                                "GST reports, Profit and Loss Report",
+                                "Remove myBillBook logo from invoice",
+                                "Only Mobile device supported",
+                                "+5 more features",
+                            ]
+                        },
+                        {
+                            plan_no:"2",
+                            img:"https://mybillbook.in/static-assets/images/pricing%20page/goldencrown.svg",
+                            plan_name:"Gold Plan",
+                            actual_cost:4599,
+                            cut_price:3500,
+                            color:"orange.400",
+                            features:[
+                                "All Silver Features",
+                                "Add upto 5 Staff on my Billbook",
+                                "Unlimited Mobile + desktop Logins",
+                            ]
+                        },
+                        {
+                            plan_no:"3",
+                            img:"https://mybillbook.in/static-assets/images/pricing%20page/greencrown.svg",
+                            plan_name:"Platinum Plan",
+                            actual_cost:2599,
+                            cut_price:1799,
+                            color:"green.600",
+                            features:[
+                                "All Silver & Gold Features!",
+                                "Add unlimited staff to my Billbook"
+                            ]
+                        },
+                    ].map((obj, i)=>(
+                        <Plans key={i} plan={obj}/>
 
-                    </VStack>
-                    <VStack w={"30%"} border="2px" minH={"20rem"}>
-                        <img 
-                        alt='plan2'
-                        src='https://mybillbook.in/static-assets/images/pricing%20page/goldencrown.svg'
-                        />
-                        <Text>
-                            Gold Plan
-                        </Text>
-                        <HStack>
-                            <Text>
-                               ₹
-                            </Text>
-                            <Text textDecorationLine={"line-through"}>2599</Text>
-                            <Text>
-                                1799 /year
-                            </Text>
-                        </HStack>
-                        <Text>
-                            Mobile + Desktop
-                        </Text>
-
-                    </VStack>
-                    <Box w={"30%"} border="2px" minH={"20rem"} p={"2"}>
-                        <VStack>
-                            <VStack w="100%" align={"flex-start"}>
-                                <img 
-                                alt='plan2'
-                                src='https://mybillbook.in/static-assets/images/pricing%20page/goldencrown.svg'
-                                />
-                                <Text>
-                                    Diamond Plan
-                                </Text>
-                                <HStack>
-                                    <Text>
-                                    ₹
-                                    </Text>
-                                    <Text textDecorationLine={"line-through"}>4599</Text>
-                                    <Text>
-                                        3500 /year
-                                    </Text>
-                                </HStack>
-                            </VStack>
-                            <Box w="100%" bg={"gray.200"}>
-                                <Text textAlign={"center"} m={"2"} rounded="sm" fontWeight={"semibold"} color={"blackAlpha.800"}>
-                                    Mobile + Desktop
-                                </Text>
-                            </Box>
-                            <Table>
-                                <Tbody>
-                                    <Tr>
-                                        <Td><Icon as={CheckIcon} color={"green.500"}/></Td>
-                                        <Td w="100%">All Silver & Gold Features!</Td>
-                                    </Tr>
-                                    <Tr>
-                                        <Td><Icon as={CheckIcon} color={"green.500"}/></Td>
-                                        <Td w="100%">Add <b>Unlimited</b> Staff!</Td>                                        
-                                    </Tr>
-                                </Tbody>
-                            </Table>
-
-                        </VStack>
-                    </Box>
-
+                    ))}
                 </HStack>
             </VStack>
+            {/* Footer */}
             <HStack w={"100%"} justify="space-around" py={"5"} align="flex-start">
                 <VStack experimental_spaceY={"2"}>
                     <Heading color={"orange.300"}> Get in Touch</Heading>
                     <Text> help@flobiz.in</Text>
                     <Text> +91 7400417400   </Text>
                     <HStack>
-                        <Button colorScheme={"whatsapp"}>WhatsApp us</Button>
-                        <Button colorScheme={"messenger"}> Chat with us</Button>
+                        <Button bg={"#e7f4f2"} color={"green.500"}>
+                            <img src={"https://mybillbook.in/static-assets/images/whatsapp-1.webp"} alt="whatsapp"/> &nbsp;
+                        WhatsApp us</Button>
+                        <Button bg={"blue.100"} color={"blue.500"}> Chat with us</Button>
                     </HStack>
                 </VStack>
                 <VStack experimental_spaceY={"5"}>
@@ -327,14 +291,13 @@ function Home() {
                 <VStack experimental_spaceY={"5"}>
                     <Heading color={"orange.300"}>  Follow us</Heading>
                     <HStack>
-                        <Button rounded={"full"}> YT </Button>
-                        <Button rounded={"full"}> FB </Button>
-                        <Button rounded={"full"}> I </Button>
-                        <Button rounded={"full"}> T </Button>
-                        <Button rounded={"full"}> iN </Button>
+                        <Button rounded={"full"} w="50px" height={"50px"}> <img src={"https://mybillbook.in/static-assets/images/landing-page/youtube.webp"} alt="youtube"/> </Button>
+                        <Button rounded={"full"} w="50px" height={"50px"}> <img src={"https://mybillbook.in/static-assets/images/landing-page/facebook_Icon.webp"} alt="facebook"/> </Button>
+                        <Button rounded={"full"} w="50px" height={"50px"}> <img src={"https://mybillbook.in/static-assets/images/landing-page/instagram.webp"} alt="youtube"/> </Button>
+                        <Button rounded={"full"} w="50px" height={"50px"}> <img src={"https://mybillbook.in/static-assets/images/landing-page/twitter-icon.webp"} alt="youtube"/> </Button>
+                        <Button rounded={"full"} w="50px" height={"50px"}> <img src={"https://mybillbook.in/static-assets/images/landing-page/linkedin-icon.webp"} alt="youtube"/> </Button>
                     </HStack>
                     <Text> FloBook is a product of FloBiz</Text>
-
                 </VStack>
             </HStack>
         </VStack>
@@ -342,4 +305,4 @@ function Home() {
   )
 }
 
-export default Home
+export default Home;

@@ -9,8 +9,8 @@ function Nav() {
   const {state, dispatch} = GlobalContext(); 
   return (
         <HStack justify={"space-between"} w={"100%"}>
-            <HStack me="auto">
-                <img src={"https://mybillbook.in/static-assets/images/mybillbook-logo.webp"} alt={"logo"} width="200px" height={"200px"}/>
+            <HStack  me="auto">
+                <img style={{"cursor":"pointer"}} src={"https://mybillbook.in/static-assets/images/mybillbook-logo.webp"} alt={"logo"} width="200px" height={"200px"}/>
             </HStack>
             <HStack experimental_spaceX={"10"}>
               {
@@ -25,11 +25,11 @@ function Nav() {
                   </>
                 :
               <>
-                <Text>Why use BillBook?</Text>
-                <Text>Who is it for?</Text>
-                <Text>Online Store</Text>
-                <Text>Pricing</Text>
-                <Text>Faqs</Text>
+                <Text cursor={"pointer"} _hover={{"color":"orange", "borderBottom":"2px solid orange"}}>Why use BillBook?</Text>
+                <Text cursor={"pointer"} _hover={{"color":"orange", "borderBottom":"2px solid orange"}}>Who is it for?</Text>
+                <Text cursor={"pointer"} _hover={{"color":"orange", "borderBottom":"2px solid orange"}}>Online Store</Text>
+                <Text cursor={"pointer"} _hover={{"color":"orange", "borderBottom":"2px solid orange"}}>Pricing</Text>
+                <Text cursor={"pointer"} _hover={{"color":"orange", "borderBottom":"2px solid orange"}}>Faqs</Text>
                 <Button colorScheme={"red"} px={"5"}>Login</Button>
               </>
               }

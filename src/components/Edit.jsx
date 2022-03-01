@@ -73,11 +73,11 @@ function Edit({ data, setData, find, setFind }) {
         <HStack>
             <FormControl isRequired >
                 <FormLabel htmlFor='item_name'>Item Name </FormLabel>
-                <Input name='item_name' id={"item_name"} value={svdata.item_name || ""} onChange={e=>iphandler(e)} required></Input>                   
+                <Input name='item_name' id={"item_name"} value={svdata.item_name || ""} onChange={e=>iphandler(e)}  placeholder="Enter Item name"></Input>                   
             </FormControl>
             <FormControl isRequired>
                 <FormLabel htmlFor='item_code'>Item Code </FormLabel>
-                <Input name='item_code' id='item_code' value={svdata.item_code || ""} onChange={e=>iphandler(e)} required></Input>                   
+                <Input name='item_code' id='item_code' value={svdata.item_code || ""} onChange={e=>iphandler(e)}  placeholder="Enter Item Code"></Input>                   
             </FormControl>
         </HStack>
         <Text w={"100%"} bgColor={"gray.100"} color={"blackAlpha.800"} p={"2"} rounded={"sm"} fontWeight={"medium"}>Stock and Pricing Deatils(Optional)</Text>
@@ -91,12 +91,12 @@ function Edit({ data, setData, find, setFind }) {
                         fontSize='1.2em'
                         children='₹'
                         />
-                    <Input name='sales_price' value={svdata.sales_price || ""} onChange={e=>iphandler(e)} required></Input>                   
+                    <Input name='sales_price' value={svdata.sales_price || ""} onChange={e=>iphandler(e)} placeholder="Enter sale amount"></Input>                   
                 </InputGroup>
                                 
             </FormControl>
             <FormControl >
-                <FormLabel required>Purchase Price </FormLabel>
+                <FormLabel >Purchase Price </FormLabel>
                 <InputGroup>
                     <InputLeftElement
                         pointerEvents='none'
@@ -104,7 +104,7 @@ function Edit({ data, setData, find, setFind }) {
                         fontSize='1.2em'
                         children='₹'
                         />
-                    <Input name='purchase_price' value={svdata.purchase_price || ""} onChange={e=>iphandler(e)} required></Input>                                      
+                    <Input name='purchase_price' value={svdata.purchase_price || ""} onChange={e=>iphandler(e)}  placeholder="Enter purchase amount"></Input>                                      
                 </InputGroup>
             </FormControl>
         </HStack>
