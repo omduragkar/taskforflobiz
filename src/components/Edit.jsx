@@ -21,8 +21,8 @@ function Edit({ data, setData, find, setFind }) {
         setSvdata(prev=>({...prev, [e.target.name]:e.target.value}))
     }
     const submithandler = ()=>{
-        console.log(svdata)
-        if(!svdata.date || !svdata.item_code || !svdata.item_name)
+        // console.log(svdata)
+        if( !svdata.item_code || !svdata.item_name)
         {
             toast({
                 title: 'Please Fill all the field!',
@@ -62,7 +62,7 @@ function Edit({ data, setData, find, setFind }) {
                 }
                 setSvdata({});
                 setFind("");
-                console.log(data);
+                // console.log(data);
             }
     }
     
@@ -71,16 +71,16 @@ function Edit({ data, setData, find, setFind }) {
         <Heading border={"2px"} borderEndWidth={"0"} borderLeftWidth={"0"} borderColor="gray.200"  w={"100%"} p={"2"}>Create/Edit</Heading>
 
         <HStack>
-            <FormControl >
-                <FormLabel required>Item Name </FormLabel>
-                <Input name='item_name' value={svdata.item_name || ""} onChange={e=>iphandler(e)} required></Input>                   
+            <FormControl isRequired >
+                <FormLabel htmlFor='item_name'>Item Name </FormLabel>
+                <Input name='item_name' id={"item_name"} value={svdata.item_name || ""} onChange={e=>iphandler(e)} required></Input>                   
             </FormControl>
-            <FormControl >
-                <FormLabel required>Item Code </FormLabel>
-                <Input name='item_code' value={svdata.item_code || ""} onChange={e=>iphandler(e)} required></Input>                   
+            <FormControl isRequired>
+                <FormLabel htmlFor='item_code'>Item Code </FormLabel>
+                <Input name='item_code' id='item_code' value={svdata.item_code || ""} onChange={e=>iphandler(e)} required></Input>                   
             </FormControl>
         </HStack>
-        <Text>Stock and Pricing Deatils(Optional)</Text>
+        <Text w={"100%"} bgColor={"gray.100"} color={"blackAlpha.800"} p={"2"} rounded={"sm"} fontWeight={"medium"}>Stock and Pricing Deatils(Optional)</Text>
         <HStack>
             <FormControl >
                 <FormLabel required>Sales Price </FormLabel>

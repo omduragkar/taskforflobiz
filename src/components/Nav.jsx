@@ -18,7 +18,7 @@ function Nav() {
                   <>
                     <Text>{state.user.mobile_number}</Text>
                     <Button variant={'solid'} colorScheme="red" px={"5"} onClick={e=>{
-                      localStorage.removeItem("user");
+                      localStorage.clear();
                       history("/")
                       dispatch({type:LOGOUT})
                     }}>Logout</Button>

@@ -1,4 +1,4 @@
-import { Button, Container, FormControl, FormLabel, Heading, HStack, Input, InputGroup, InputLeftAddon, Text, useToast, VStack } from '@chakra-ui/react'
+import { Button, Container, FormControl, FormLabel, Heading, HStack, Input, InputGroup, InputLeftAddon, NumberInput, NumberInputField, Text, useToast, VStack } from '@chakra-ui/react'
 import axios from 'axios';
 import React, { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom';
@@ -32,7 +32,7 @@ function Home() {
                 mobile_number:userg.mobile
             }, config).then(res=>{
                 // console.log(res);
-                setOtplisten(prev=>prev?false:true);
+                setOtplisten(prev=>prev?true:true);
             }).catch(err=>{
                 toast({
                     title: err.response.data.error,
@@ -89,6 +89,7 @@ function Home() {
             })
         }
     }
+    
   return (
     <Container my={"2"} mx={"0"}>
         <VStack w={"94vw"}>
@@ -123,7 +124,9 @@ function Home() {
                             <FormLabel>Enter Mobile Number </FormLabel>
                             <InputGroup>
                                 <InputLeftAddon>+91</InputLeftAddon>
-                                <Input name='mobile' value={userg.mobile || ""} onChange={e=>setUserg(prev=>({...prev, [e.target.name]:e.target.value}))}></Input>
+                                <NumberInput>
+                                    <NumberInputField  name='mobile' value={userg.mobile || ""} onChange={e=>setUserg(prev=>({...prev, [e.target.name]:e.target.value}))}></NumberInputField >
+                                </NumberInput>
                             </InputGroup>
                         </FormControl>
                         {otplisten === false &&
@@ -133,14 +136,17 @@ function Home() {
                             <>
                                 <FormControl>
                                     <FormLabel>Enter otp: </FormLabel>
-                                    <InputGroup>
-                                        <Input name='otp' value={userg.otp || ""} onChange={e=>setUserg(prev=>({...prev, [e.target.name]:e.target.value}))}></Input>
-                                    </InputGroup>
+                                    <NumberInput>
+                                        <NumberInputField name='otp' value={userg.otp || ""} onChange={e=>setUserg(prev=>({...prev, [e.target.name]:e.target.value}))}></NumberInputField>
+                                    </NumberInput>
                                 </FormControl>
-                                <a href="/" style={{"color":"red", 'textAlign':"start"}}>Resend OTP!</a>
-                                <HStack>
-                                    
-                                    <Button onClick={submit}>Login</Button>
+                                <Text
+                                    onClick={e=>getotp(e)} cursor={"pointer"}
+                                    textColor={"red"}
+                                    w={"100%"}
+                                 >Resend OTP</Text>
+                                <HStack  w="100%">
+                                    <Button colorScheme={"orange"} mx={"auto"} w="50%" onClick={submit} fontSize={"lg"}>Login</Button>
                                 </HStack>
                             </>
                         }
