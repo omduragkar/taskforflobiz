@@ -230,8 +230,8 @@ function Home() {
                             plan_no:"2",
                             img:"https://mybillbook.in/static-assets/images/pricing%20page/goldencrown.svg",
                             plan_name:"Gold Plan",
-                            actual_cost:4599,
-                            cut_price:3500,
+                            actual_cost:2500,
+                            cut_price:1799,
                             color:"orange.400",
                             features:[
                                 "All Silver Features",
@@ -243,8 +243,8 @@ function Home() {
                             plan_no:"3",
                             img:"https://mybillbook.in/static-assets/images/pricing%20page/greencrown.svg",
                             plan_name:"Platinum Plan",
-                            actual_cost:2599,
-                            cut_price:1799,
+                            actual_cost:4599,
+                            cut_price:3500,
                             color:"green.600",
                             features:[
                                 "All Silver & Gold Features!",
