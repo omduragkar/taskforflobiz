@@ -18,6 +18,7 @@
 5. client can edit the item by clicking on item on can see the changes as soon as client click on save button which is the reactiveness of the dashboard.
 6. client can't come to dashboard unless the one is not logged in!
 
+## Currently the web app is not responsive due to time limit but can be achieved.
 
 # Libraries Used:
 
